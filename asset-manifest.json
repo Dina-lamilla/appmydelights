@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/appmydelights/static/css/main.14383fa5.css",
+    "main.js": "/appmydelights/static/js/main.6766986d.js",
+    "static/js/453.57107383.chunk.js": "/appmydelights/static/js/453.57107383.chunk.js",
+    "static/media/imgHome.jpg": "/appmydelights/static/media/imgHome.176c5fc703343371b17b.jpg",
+    "index.html": "/appmydelights/index.html",
+    "main.14383fa5.css.map": "/appmydelights/static/css/main.14383fa5.css.map",
+    "main.6766986d.js.map": "/appmydelights/static/js/main.6766986d.js.map",
+    "453.57107383.chunk.js.map": "/appmydelights/static/js/453.57107383.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14383fa5.css",
+    "static/js/main.6766986d.js"
+  ]
+}
