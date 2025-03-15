@@ -8,7 +8,7 @@ function CardPlatosC({CardPlatosCInfo, eventKey}){
         <Card eventKey={eventKey.toString()} style={{ width: "18rem" }}>
                 <Card.Img
                   variant="top"
-                  src={CardPlatosCInfo.imagen}
+                  src={`${process.env.PUBLIC_URL}${CardPlatosCInfo.imagen}`} 
                   text="Sopa de verduras"
                   alt=""
                 />
