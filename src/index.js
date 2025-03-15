@@ -4,11 +4,10 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//Importamos el modulo que permite que se lea el componente para los links
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+// Importamos el módulo de enrutamiento
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
-//importamos modulos/COMPONENTES
-
+// Importamos los componentes
 import ClientForm from './componentes/clientForm/clientForm.jsx';
 import ComidaC from './componentes/comidaC/comidaC.jsx';
 import Compras from './componentes/compras/compras';
@@ -16,52 +15,27 @@ import Home from './componentes/home/home.jsx';
 import OServicios from './componentes/oServicios/oServicios.jsx';
 import PlatosCarta from './componentes/platosCarta/platosCarta.jsx';
 
-const router=createBrowserRouter(
-    [
-      {
-        //Elemento HOME estara en esta dirección "/"
-        path: "/",
-        element: <Home/> //llamamos el componente
-      },
-      
-      {
-        path: "/ComidaC",
-        element: <ComidaC/>
-      },
-      
-      {
-        path: "/Compras",
-        element: <Compras/> 
-      },
+// Definimos el componente principal con las rutas
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/ComidaC" element={<ComidaC />} />
+      <Route path="/Compras" element={<Compras />} />
+      <Route path="/OServicios" element={<OServicios />} />
+      <Route path="/PlatosCarta" element={<PlatosCarta />} />
+      <Route path="/ClientForm" element={<ClientForm />} />
+    </Routes>
+  </Router>
+);
 
-      {
-        path: "/OServicios",
-        element: <OServicios/> 
-      },
-
-      {
-        path: "/PlatosCarta",
-        element: <PlatosCarta/> 
-      },
-
-      {
-        path: "/ClientForm",
-        element: <ClientForm/> 
-      },
-    ]
-)
-
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Renderizamos la aplicación
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* Usamos nuestra función router, tiene que estar integrada en RouterProvider */}
-    <RouterProvider router={router}/>
+    <App />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Medición de rendimiento
 reportWebVitals();
