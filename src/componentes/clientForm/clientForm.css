@@ -1,0 +1,14 @@
+.contenedorFormulario{
+    padding: 1rem;
+}
+.FormularioRegistro{
+    padding: 1rem;
+    background-color: rgb(205, 205, 205);
+    border-radius:1rem;
+}
+
+.BotonesFormulario{
+    padding: auto;
+    display: flex;
+    gap: .5rem;
+}

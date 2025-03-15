@@ -1,0 +1,20 @@
+
+.ContenedorCompras{
+    padding: auto;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.CalculoTotal{
+    padding: auto;
+    display: flex;
+    
+}
+
+.CalculoTotal h5{
+    align-items: flex-start;
+}
+
+.CalculoTotal p{
+    align-items:end
+}
