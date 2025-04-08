@@ -14,21 +14,36 @@
 .textHome{
     color: aliceblue;
     padding: 5rem;
+    width: 65%;
 }
 .textHome h2{
     color: aliceblue;
-    font-size: xx-large;
+    font-size: 4rem;
+
 }
-.textHome h5{
+.textHome p{
     color: aliceblue;
-    font-size: medium;
+    font-size: 1.5rem;
 }
 
-.menu-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    color: #fff; /* O el color que prefieras */
-  }
-  
+@media (max-width: 768px) {
+    .contenedorHome{
+        width: 100vw; /* 100% del ancho de la ventana */
+        height: 100vh; /* 100% del alto de la ventana */
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+    }
+    .textHome{
+        padding: 2rem;
+    }
+
+    .textHome h2{
+        font-size: 2.5rem;
+    
+    }
+    .textHome p{
+        font-size: 1.2rem;
+    }
+
+}

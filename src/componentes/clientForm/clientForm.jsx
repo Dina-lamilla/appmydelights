@@ -124,6 +124,13 @@ function ClientForm() {
                   type="e-mail"
                   name="Correo Electrónico"
                   placeholder="@example.com"
+                /><br/>
+
+              <Form.Label>Contraseña</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="Contraseña"
+                  placeholder="Utilice mayusculas y caracteres especiales"
                 />
               </Form.Group>
 

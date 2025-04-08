@@ -15,7 +15,7 @@ function Home() {
     return (
       <div className="container1">
         <Row>
-          {/* Menú a la izquierda */}
+          {/* Menú a la izquierda */} 
           <Col md={2}>
           <Nav/>
           </Col>
@@ -25,7 +25,7 @@ function Home() {
             <div className="contenedorHome">
               <div className="textHome"> 
               <h2>ORDENA TU</h2>
-              <h5>COMIDA FAVORITA</h5>
+              <p>COMIDA FAVORITA</p>
               <Link
                     type="button"
                     className="btn btn-primary font-semibold"

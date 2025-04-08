@@ -8,21 +8,35 @@ import { Button } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
-function Nav() {  
+function Nav() {
   return (
     <div className="Container">
       <Row>
         <Col sm={0} id="navbar" className="MenuIz">
           <ListGroup variant="flush">
-            <ListGroup.Item>LOGO</ListGroup.Item>
+            <ListGroup.Item>
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/img/Logo.png`}
+                alt="Logo"
+                className="Logo"
+              />
+              {/* 
+              NOTA:
+              Esta imagen se carga desde la carpeta 'public'.
+              Usa rutas absolutas comenzando con '/' o `${process.env.PUBLIC_URL}` para asegurar compatibilidad.
+              NO usar 'import' para archivos en 'public', solo para imágenes dentro de 'src'.
+              Ejemplo correcto:
+                <img src={`${process.env.PUBLIC_URL}/assets/img/Logo.png`} alt="Logo" width="100%" />
+              */}
+            </ListGroup.Item>
 
             <ListGroup.Item>
               <Link
-              type="button"
-              className="btn btn-outline font-semibold"
-              to={"/ClientForm"}
+                type="button"
+                className="btn btn-outline font-semibold"
+                to={"/ClientForm"}
               >
-              Registrarse
+                Registrarse
               </Link>
               <Button variant="outline-primary">Ingresar</Button>
               <br />
@@ -46,11 +60,11 @@ function Nav() {
                 />
               </svg>
               <Link
-              type="button"
-              className="btn btn-outline font-semibold"
-              to={"/"}
+                type="button"
+                className="btn btn-outline font-semibold"
+                to={"/"}
               >
-              Inicio
+                Inicio
               </Link>
             </ListGroup.Item>
 
@@ -73,11 +87,11 @@ function Nav() {
                 />
               </svg>
               <Link
-              type="button"
-              className="btn btn-outline font-semibold"
-              to={"/Compras"}
-              > 
-              Compras
+                type="button"
+                className="btn btn-outline font-semibold"
+                to={"/Compras"}
+              >
+                Compras
               </Link>
               <br />
 
@@ -98,11 +112,11 @@ function Nav() {
                 />
               </svg>
               <Link
-              type="button"
-              className="btn btn-outline font-semibold"
-              to={"/PlatosCarta"}
+                type="button"
+                className="btn btn-outline font-semibold"
+                to={"/PlatosCarta"}
               >
-              Platos a la Carta
+                Platos a la Carta
               </Link>
 
               <br />
@@ -125,11 +139,11 @@ function Nav() {
                 />
               </svg>
               <Link
-              type="button"
-              className="btn btn-outline font-semibold"
-              to={"/ComidaC"}
+                type="button"
+                className="btn btn-outline font-semibold"
+                to={"/ComidaC"}
               >
-              Comida Corriente
+                Comida Corriente
               </Link>
             </ListGroup.Item>
 
@@ -150,11 +164,11 @@ function Nav() {
                 />
               </svg>
               <Link
-              type="button"
-              className="btn btn-outline font-semibold"
-              to={"/OServicios"}
+                type="button"
+                className="btn btn-outline font-semibold"
+                to={"/OServicios"}
               >
-              Otros Servicios
+                Otros Servicios
               </Link>
             </ListGroup.Item>
           </ListGroup>
