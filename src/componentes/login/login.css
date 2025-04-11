@@ -1,0 +1,25 @@
+.contenedorLogin{
+    width: 100%; /* 100% del ancho de la ventana */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.contenedorForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.LogoLogin{ 
+    display: flex;
+    align-items:center;
+    width: 30%;
+    padding: auto;
+}
+
+.BannerLogin{
+    width: 100vh;
+    height: 100vh;
+    
+}

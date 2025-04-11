@@ -1,5 +1,6 @@
 import "./home.css"
 import Nav from "../nav/nav";
+import Footer from "../footer/footer.jsx";
 
 
 //bootstrap
@@ -21,7 +22,7 @@ function Home() {
           </Col>
 
           {/* Home a la derecha */}
-          <Col md={9}>
+          <Col md={10}>
             <div className="contenedorHome">
               <div className="textHome"> 
               <h2>ORDENA TU</h2>
@@ -34,6 +35,9 @@ function Home() {
                     Menú
                   </Link>
               </div>
+            </div>
+            <div className="footer">
+            <Footer/>
             </div>
           </Col>
         </Row>

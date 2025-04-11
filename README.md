@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# 🧁 MyDelights - Sistema Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es un sistema web desarrollado con React para la gestión de un restaurante, permitiendo a los usuarios visualizar el menú, realizar cotizaciones, hacer compras y acceder a otros servicios.
 
-## Available Scripts
+## 🚀 Tecnologías utilizadas
 
-In the project directory, you can run:
+- React
+- React Router
+- Bootstrap
+- PHP (backend para login)
+- MySQL
+- AppServ 9.3.0 (entorno de servidor local)
 
-### `npm start`
+## 🖥️ Entorno de desarrollo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+El desarrollo del backend se realizó utilizando **AppServ 9.3.0**, una plataforma que integra Apache, PHP y MySQL.  
+La carpeta `login-backend/` fue ubicada en:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+http://localhost/login-backend/login.php
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La base de datos `mydelights` fue creada desde **phpMyAdmin** que provee AppServ, utilizando el usuario `root` sin contraseña.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El sistema cuenta con una pantalla de login conectada a una base de datos MySQL a través de un backend en PHP.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La autenticación se realiza con PHP y conexión a MySQL.  
+Los archivos del backend están en la carpeta `login-backend/`.
 
-### `npm run eject`
+### Archivos importantes:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `login.php`: Recibe el JSON desde React, valida usuario y contraseña.
+- `conexion.php`: Conexión a la base de datos MySQL.
+- `debug.txt`: Se utiliza para registrar los datos que llegan desde el frontend durante pruebas.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🌳 Árbol de directorios (backend)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+login-backend/ │ ├── conexion.php ├── login.php ├── debug.txt └── debug-login.txt
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*DINA LAMILLA GONZÁLEZ*  
+Estudiante de Desarrollo de Software UNAD  
+Proyecto académico – 2025

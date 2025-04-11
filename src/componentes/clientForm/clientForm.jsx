@@ -2,7 +2,7 @@ import "./clientForm.css";
 import Nav from "../nav/nav";
 
 //bootstrap
-import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -124,9 +124,10 @@ function ClientForm() {
                   type="e-mail"
                   name="Correo Electrónico"
                   placeholder="@example.com"
-                /><br/>
+                />
+                <br />
 
-              <Form.Label>Contraseña</Form.Label>
+                <Form.Label>Contraseña</Form.Label>
                 <Form.Control
                   type="password"
                   name="Contraseña"
@@ -134,15 +135,29 @@ function ClientForm() {
                 />
               </Form.Group>
 
-              <Form.Check aria-label="option 1" label="Acepto terminos y condiciones" /><br/>
+              <Form.Check
+                aria-label="option 1"
+                label="Acepto terminos y condiciones"
+              />
+              <br />
 
               <div className="BotonesFormulario">
-                <Button variant="primary" size="mg" active>
+                
+                <Link
+                  type="button"
+                  className="btn btn-primary font-semibold"
+                  to={"/Login"}
+                >
                   Enviar
-                </Button>
-                <Button variant="none" size="mg" active>
+                </Link>
+
+                <Link
+                  type="button"
+                  className="btn btn-outline-secondary font-semibold"
+                  to={"/"}
+                >
                   Volver
-                </Button>
+                </Link>
               </div>
             </Form>
           </div>
