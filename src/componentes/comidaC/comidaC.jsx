@@ -1,17 +1,12 @@
 import "./comida.css";
-import Nav from "../nav/nav";
+import Nav from "../nav/nav"; 
 
 //bootstrap
-import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
 
 import {CardPlatosCInfo} from "../../global/CardPlatosC"
 import CardPlatosC from "../../card/cardPlatosC"
-
-import { Link } from "react-router-dom";
 
 //-----------------------------HOME----------------------------------
 

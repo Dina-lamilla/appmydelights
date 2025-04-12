@@ -2,16 +2,12 @@ import "./platosCarta.css";
 import Nav from "../nav/nav";
 
 //bootstrap
-import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
 
-import {CardPlatosCInfo} from "../../global/CardPlatosC"
-import CardPlatosC from "../../card/cardPlatosC"
+import {CardPlatosCartaInfo} from "../../global/CardPlatosCartaInfo"
+import CardPlatosCarta from "../../card/cardPlatosCarta" 
 
-import { Link } from "react-router-dom";
 
 //-----------------------------HOME----------------------------------
 
@@ -30,10 +26,10 @@ function PlatosCarta() {
           <h4>Platos a la carta</h4><br/>
             {/*------------------------- CARD PLATILLOS------------------------- */}
             <div className="CardPlatosCStyle">
-              {CardPlatosCInfo.map((info, index)=>{
+              {CardPlatosCartaInfo.map((info, index)=>{
                 return(
                   <>
-                  <CardPlatosC CardPlatosCInfo={info} eventKey={index} />
+                  <CardPlatosCarta CardPlatosCartaInfo={info} eventKey={index} />
                   </>
                 )
               })}
