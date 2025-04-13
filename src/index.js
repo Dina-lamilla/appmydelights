@@ -16,6 +16,7 @@ import OServicios from "./componentes/oServicios/oServicios.jsx";
 import PlatosCarta from "./componentes/platosCarta/platosCarta.jsx";
 import Login from "./componentes/login/login.jsx";
 import AdminClientes from "./componentes/adminClientes/adminClientes.jsx";
+import FormEditar from "./componentes/adminClientes/formEditar.jsx"
 
 
 import RutaPrivada from "./componentes/RutaPrivada.jsx";
@@ -30,6 +31,7 @@ const App = () => (
       <Route path="/PlatosCarta" element={<PlatosCarta />} />
       <Route path="/ClientForm" element={<ClientForm />} />
       <Route path="/Compras" element={<Compras />} />
+      <Route path="/FormEditar/:id" element={<FormEditar />} />
       <Route
         path="/Login"
         element={

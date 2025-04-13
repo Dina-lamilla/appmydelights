@@ -1,138 +1,188 @@
-import "./clientForm.css";
-import Nav from "../nav/nav";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Form, Row, Col, Button } from "react-bootstrap";
 
-//bootstrap
-import { Link } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-
-//-----------------------------HOME----------------------------------
 
 function FormEditar() {
+  const { id } = useParams();
+  const [nombreUsuario, setNombreUsuario] = useState("");
+  const [numeroCedula, setNumeroCedula] = useState("");
+  const [genero, setGenero] = useState("");
+  const [fechaNacimiento, setFechaNacimiento] = useState("");
+  const [direccionResidencia, setDireccionResidencia] = useState("");
+  const [telefonoCelular, setTelefonoCelular] = useState("");
+  const [correoElectronico, setCorreoElectronico] = useState("");
+  const [contrasena, setContrasena] = useState("");
+  const [tipoCliente, setTipoCliente] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const cargarUsuario = async () => {
+      try {
+        const response = await fetch(`http://localhost/login-backend/obtener_usuario.php?id=${id}`);
+        const data = await response.json();
+
+        if (data) {
+          setNombreUsuario(data.nombreUsuario);
+          setNumeroCedula(data.numeroCedula);
+          setGenero(data.genero);
+          setFechaNacimiento(data.fechaNacimiento);
+          setDireccionResidencia(data.direccionResidencia);
+          setTelefonoCelular(data.telefonoCelular);
+          setCorreoElectronico(data.correoElectronico);
+          setTipoCliente(data.tipoCliente);
+        }
+      } catch (error) {
+        console.error("Error al cargar usuario:", error);
+        setError("Error al cargar los datos del usuario.");
+      }
+    };
+
+    cargarUsuario();
+  }, [id]);
+
+  const handleEditar = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    if (
+      !nombreUsuario.trim() ||
+      !numeroCedula.trim() ||
+      !genero.trim() ||
+      !fechaNacimiento.trim() ||
+      !direccionResidencia.trim() ||
+      !telefonoCelular.trim() ||
+      !correoElectronico.trim() ||
+      !tipoCliente.trim()
+    ) {
+      setError("Todos los campos son obligatorios.");
+      setLoading(false);
+      return;
+    }
+
+    // Crear el objeto de datos que se enviará al backend
+    const dataToSend = {
+      usuarioID: id,
+      nombreUsuario,
+      numeroCedula,
+      genero,
+      fechaNacimiento,
+      direccionResidencia,
+      telefonoCelular,
+      correoElectronico,
+      tipoCliente,
+    };
+
+    // Solo agregar 'contrasena' si no está vacía
+    if (contrasena.trim()) {
+      dataToSend.contrasena = contrasena;
+    }
+
+    try {
+      const respuesta = await fetch("http://localhost/login-backend/editar.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataToSend),
+      });
+
+      const data = await respuesta.json();
+
+      if (!respuesta.ok) {
+        setError(`Error en el servidor. Código de estado: ${respuesta.status}`);
+      } else if (data.estado === "ok") {
+        alert("¡Registro actualizado con éxito!");
+        navigate("/AdminClientes");
+      } else {
+        setError(data.mensaje || "Error desconocido al actualizar");
+      }
+    } catch (error) {
+      setError("No se pudo conectar al servidor. Intenta más tarde.");
+      console.error("Error en la conexión:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="contenedorFormulario">
-      <Form className="FormularioRegistro">
-        <h5>Formulario De Registro</h5>
-        <Row className="mb-3">
-          <Form.Group as={Col} className="mb-3" controlId="formRegistroUser">
-            <Form.Label>Usuario</Form.Label>
-            <Form.Control
-              type="text"
-              name="usuario"
-              placeholder="Ingrese su usuario"
-            />
-            <Form.Text>
-              Ingresa tu nombre de usuario. Asegúrate de que tenga entre 4 y 16
-              caracteres.
-            </Form.Text>
-          </Form.Group>
+      <Row>
+        <Col md={2}></Col>
+        <Col md={9}>
+          <div className="FormularioEditar">
+            <h5>Formulario de Edición de Usuario</h5>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            <Form onSubmit={handleEditar}>
+              <Row className="mb-3">
+                <Form.Group as={Col}>
+                  <Form.Label>ID</Form.Label>
+                  <Form.Control value={id} readOnly />
+                </Form.Group>
+                <Form.Group as={Col}>
+                  <Form.Label>Nombre de Usuario</Form.Label>
+                  <Form.Control value={nombreUsuario} onChange={(e) => setNombreUsuario(e.target.value)} required />
+                </Form.Group>
+                <Form.Group as={Col}>
+                  <Form.Label>Número de Cédula</Form.Label>
+                  <Form.Control value={numeroCedula} onChange={(e) => setNumeroCedula(e.target.value)} required />
+                </Form.Group>
+              </Row>
 
-          <Form.Group as={Col} className="mb-3" controlId="formRegistroCedula">
-            <Form.Label>Número de cedula</Form.Label>
-            <Form.Control
-              type="number"
-              name="Número de cedula"
-              placeholder="Ingrese su Número de cedula"
-            />
-            <Form.Text>
-              Asegúrate de ingresar tu número de cédula correctamente para
-              validar tu identidad.
-            </Form.Text>
-          </Form.Group>
-        </Row>
+              <Row className="mb-3">
+                <Form.Group as={Col}>
+                  <Form.Label>Género</Form.Label>
+                  <Form.Select value={genero} onChange={(e) => setGenero(e.target.value)} required>
+                    <option value="" disabled>Seleccionar Género</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Otro">Otro</option>
+                  </Form.Select>
+                </Form.Group>
 
-        <Row>
-          <Form.Group as={Col} className="mb-3" controlId="formRegistroGenero">
-            <Form.Label>Genero</Form.Label>
+                <Form.Group as={Col}>
+                  <Form.Label>Fecha de Nacimiento</Form.Label>
+                  <Form.Control type="date" value={fechaNacimiento} onChange={(e) => setFechaNacimiento(e.target.value)} required />
+                </Form.Group>
+              </Row>
 
-            <Form.Select aria-label="Default select example">
-              <option>Selecionar Genero</option>
-              <option value="1">Femenino</option>
-              <option value="2">Masculino</option>
-              <option value="3">Prefiero No Decirlo</option>
-            </Form.Select>
-          </Form.Group>
+              <Row className="mb-3">
+                <Form.Group as={Col}>
+                  <Form.Label>Dirección de Residencia</Form.Label>
+                  <Form.Control value={direccionResidencia} onChange={(e) => setDireccionResidencia(e.target.value)} required />
+                </Form.Group>
 
-          <Form.Group
-            as={Col}
-            className="mb-3"
-            controlId="formRegistroFechaNacimiento"
-          >
-            <Form.Label>Fecha De Nacimiento</Form.Label>
-            <Form.Control type="date" name="Fecha De Nacimiento" />
-            <Form.Text>
-              Ingresa tu fecha de nacimiento en el formato correcto.
-            </Form.Text>
-          </Form.Group>
-        </Row>
+                <Form.Group as={Col}>
+                  <Form.Label>Teléfono Celular</Form.Label>
+                  <Form.Control value={telefonoCelular} onChange={(e) => setTelefonoCelular(e.target.value)} required />
+                </Form.Group>
+              </Row>
 
-        <Row className="mb-3">
-          <Form.Group
-            as={Col}
-            className="mb-3"
-            controlId="formRegistroDireccion"
-          >
-            <Form.Label>Dirección de Residencia</Form.Label>
-            <Form.Control placeholder="Ejem: carrerra 55b # " />
-            <Form.Text>Ingresa tu dirección de residencia.</Form.Text>
-          </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Correo Electrónico</Form.Label>
+                <Form.Control type="email" value={correoElectronico} onChange={(e) => setCorreoElectronico(e.target.value)} required />
+              </Form.Group>
 
-          <Form.Group
-            as={Col}
-            className="mb-3"
-            controlId="formRegistroTelefono"
-          >
-            <Form.Label>Teléfono Celular</Form.Label>
-            <Form.Control
-              type="number"
-              name="Teléfono Celular"
-              placeholder="Ingrese su Teléfono Celular"
-            />
-          </Form.Group>
-        </Row>
+              <Form.Group className="mb-3">
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control type="password" value={contrasena} onChange={(e) => setContrasena(e.target.value)} placeholder="Dejar en blanco para no cambiar" />
+              </Form.Group>
 
-        <Form.Group as={Col} className="mb-3" controlId="formRegistroCorreo">
-          <Form.Label>Correo Electrónico</Form.Label>
-          <Form.Control
-            type="e-mail"
-            name="Correo Electrónico"
-            placeholder="@example.com"
-          />
-          <br />
+              <Form.Group className="mb-3">
+                <Form.Label>Tipo de Cliente</Form.Label>
+                <Form.Control value={tipoCliente} onChange={(e) => setTipoCliente(e.target.value)} required />
+              </Form.Group>
 
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            name="Contraseña"
-            placeholder="Utilice mayusculas y caracteres especiales"
-          />
-        </Form.Group>
-
-        <Form.Check
-          aria-label="option 1"
-          label="Acepto terminos y condiciones"
-        />
-        <br />
-
-        <div className="BotonesFormulario">
-          <Link
-            type="button"
-            className="btn btn-primary font-semibold"
-            to={"/Login"}
-          >
-            Enviar
-          </Link>
-
-          <Link
-            type="button"
-            className="btn btn-outline-secondary font-semibold"
-            to={"/"}
-          >
-            Volver
-          </Link>
-        </div>
-      </Form>
+              <Button variant="primary" type="submit" disabled={loading}>
+                {loading ? "Cargando..." : "Guardar Cambios"}
+              </Button>
+              
+            </Form>
+            
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 }

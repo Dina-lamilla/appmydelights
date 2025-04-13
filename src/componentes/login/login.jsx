@@ -32,7 +32,7 @@ function Login({ onLoginSuccess = () => {} }) {
   
       if (data.estado === "ok") {
         onLoginSuccess(data);
-        localStorage.setItem('usuario', JSON.stringify(data));
+        localStorage.setItem('nombreUsuario', JSON.stringify(data));
         navigate('/');
       } else {
         setError('Usuario o contrasena incorrectos');

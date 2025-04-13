@@ -18,6 +18,7 @@ function Nav() {
   };
 
   
+  console.log("nombreUsuario:", nombreUsuario);
 
   return (
     <div className="Container">
@@ -40,7 +41,7 @@ function Nav() {
               */}
             </ListGroup.Item>
 
-            {nombreUsuario ? (
+            {nombreUsuario? (
               <>
                 <ListGroup.Item>
                   Usuario: {typeof nombreUsuario === "string" ? nombreUsuario : nombreUsuario?.nombreUsuario}

@@ -5,13 +5,14 @@ import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
 //bootstrap
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 function Compras() {
   const [carrito, setCarrito] = useState([]);
   const [total, setTotal] = useState(0);
+  const [tipoCliente, setTipoCliente] = useState("");
+  const [totalConDescuento, setTotalConDescuento] = useState(0);
 
   useEffect(() => {
     const carritoGuardado = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -22,9 +23,42 @@ function Compras() {
       0
     );
     setTotal(totalCalculado);
-  }, []);
 
-  /* función para eliminar un producto */
+    const idCliente = localStorage.getItem("cliente_id");
+
+    if (idCliente) {
+      fetch(`http://localhost/login-backend/obtenerTipoCliente.php?id=${idCliente}`)
+        .then((res) => res.json())
+        .then((data) => {
+          const tipo = data.tipo_cliente;
+          setTipoCliente(tipo);
+
+          let descuento = 0;
+
+          if (tipo === "Nuevo") {
+            if (totalCalculado >= 250000) {
+              descuento = 0.02;
+            }
+          } else if (tipo === "Casual") {
+            descuento = 0.02;
+            if (totalCalculado >= 200000) {
+              descuento += 0.04;
+            }
+          } else if (tipo === "Permanente") {
+            descuento = 0.04;
+            if (totalCalculado >= 150000) {
+              descuento += 0.06;
+            }
+          }
+
+          const totalDescuento = totalCalculado - totalCalculado * descuento;
+          setTotalConDescuento(totalDescuento);
+        })
+        .catch((err) => {
+          console.error("Error al obtener tipo de cliente:", err);
+        });
+    }
+  }, []);
 
   const eliminarDelCarrito = (id) => {
     const nuevoCarrito = carrito.filter((item) => item.id !== id);
@@ -35,7 +69,6 @@ function Compras() {
     setTotal(nuevoTotal);
   };
 
-  /* función pagarCarrito*/
   const pagarCarrito = () => {
     if (carrito.length === 0) {
       alert("Tu carrito está vacío.");
@@ -47,21 +80,21 @@ function Compras() {
     localStorage.removeItem("carrito");
     setCarrito([]);
     setTotal(0);
+    setTipoCliente("");
+    setTotalConDescuento(0);
   };
 
   return (
     <div className="container1">
       <Row>
-        {/* Menú a la izquierda */}
         <Col md={2}>
           <Nav />
         </Col>
 
-        {/*------------------------- COMPRAS------------------------- */}
         <Col md={9}>
           <div className="ContenedorCompras">
             <h2>Compras</h2>
-            {/**! ESTAMOS RECORRIENDO UN ARRIVE (ESTE SE ENCUENTRA EN GLOBAL)!! */}
+
             <div>
               {carrito.length === 0 ? (
                 <p>No hay productos en el carrito.</p>
@@ -85,11 +118,20 @@ function Compras() {
                 ))
               )}
             </div>
-            {/**! Cierra div pComprasInfo !! */}
 
             <section className="CalculoTotal">
               <h5>Subtotal:</h5>
               <p>${total.toLocaleString("es-CO")}</p>
+
+              {tipoCliente && (
+                <>
+                  <h5>Tipo de cliente:</h5>
+                  <p>{tipoCliente}</p>
+
+                  <h5>Total con descuento:</h5>
+                  <p>${totalConDescuento.toLocaleString("es-CO")}</p>
+                </>
+              )}
             </section>
 
             <br />
@@ -99,10 +141,10 @@ function Compras() {
               </Button>
             </div>
           </div>
-          {/**! Cierra div ContenedorCompras !! */}
         </Col>
       </Row>
     </div>
   );
 }
+
 export default Compras;
