@@ -1,0 +1,5 @@
+Array
+(
+    [correoElectronico] => dina@example.com
+    [contrasena] => 123456
+)
