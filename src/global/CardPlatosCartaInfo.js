@@ -7,7 +7,7 @@ export const CardPlatosCartaInfo = [
     ingredientes:
       "Filete de res premium (250g), Sal gruesa, Pimienta negra, ajo, Mantequilla con hierbas.",
     valor: 75000,
-    imagen: "/assets/img/Filete de Res a la Parrilla.jpg",
+    imagen: "/assets/img/Filete de Res a la Parrilla.webp",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ export const CardPlatosCartaInfo = [
       "Fettuccine al dente en salsa Alfredo cremosa, con tiras de pollo dorado y un toque de queso parmesano.",
     ingredientes: "Fettuccine, pollo, crema, queso parmesano, ajo",
     valor: 60000,
-    imagen: "/assets/img/Pasta Alfredo con Pollo.jpg",
+    imagen: "/assets/img/Pasta Alfredo con Pollo.webp",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ export const CardPlatosCartaInfo = [
     ingredientes:
       "Camarones, ajo, aceite de oliva, perejil, vino blanco.",
     valor: 65000,
-    imagen: "/assets/img/Camarones al Ajillo.jpg",
+    imagen: "/assets/img/Camarones al Ajillo.webp",
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ export const CardPlatosCartaInfo = [
       "Pechuga empanizada rellena de jamón y queso derretido, crujiente por fuera y cremosa por dentro.",
     ingredientes: "Pollo, jamón, queso mozzarella, pan rallado, huevo.",
     valor: 62000,
-    imagen: "/assets/img/Pechuga Rellena de Jamón y Queso.jpg",
+    imagen: "/assets/img/Pechuga Rellena de Jamón y Queso.webp",
   },
   {
     id: 5,
@@ -44,6 +44,6 @@ export const CardPlatosCartaInfo = [
       "Mezcla fresca de vegetales con aceitunas y queso feta, bañada en vinagreta de aceite de oliva.",
     ingredientes: "Lechuga, tomate cherry, aceitunas, queso feta, vinagreta.",
     valor: 45000,
-    imagen: "/assets/img/Ensalada Mediterránea.jpg",
+    imagen: "/assets/img/Ensalada Mediterránea.webp",
   },
 ];

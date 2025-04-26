@@ -27,7 +27,7 @@ function Nav() {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <img
-                src={`${process.env.PUBLIC_URL}/assets/img/Logo.png`}
+                src={`${process.env.PUBLIC_URL}/assets/img/Logo.webp`}
                 alt="LogoNav"
                 className="LogoNav"
               />
@@ -41,9 +41,10 @@ function Nav() {
               */}
             </ListGroup.Item>
 
+
+            <ListGroup.Item className="BotonesIn-El">
             {nombreUsuario? (
               <>
-                <ListGroup.Item>
                   Usuario: {typeof nombreUsuario === "string" ? nombreUsuario : nombreUsuario?.nombreUsuario}
                   <button
                     className="btn btn-danger btn-sm w-100"
@@ -51,11 +52,10 @@ function Nav() {
                   >
                     Cerrar sesión
                   </button>
-                </ListGroup.Item>
               </>
             ) : (
               <>
-                <ListGroup.Item>
+
                   <Link
                     type="button"
                     className="btn btn-outline font-semibold"
@@ -72,9 +72,9 @@ function Nav() {
                   </Link>
                   <br />
                   <br />
-                </ListGroup.Item>
               </>
             )}
+            </ListGroup.Item>
 
             <ListGroup.Item>
               <svg

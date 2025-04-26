@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./adminClientes.css";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
-
+ 
 function AdminClientes() {
   const [usuarios, setUsuarios] = useState([]);
 
@@ -48,10 +48,10 @@ function AdminClientes() {
   };
 
   return (
-    <div className="contenerdoPtablas">
-      <h4>Usuarios Registrados</h4>
+    <main className="contenerdoPtablas">
+      <h1>Usuarios Registrados</h1>
       <br />
-      <Table striped bordered hover>
+      <Table striped bordered hover> 
         <thead>
           <tr>
             <th>ID</th>
@@ -98,7 +98,8 @@ function AdminClientes() {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </Table> 
+      <div className="bt-Volver">
       <Link
         type="button"
         className="btn btn-outline-secondary font-semibold"
@@ -106,7 +107,8 @@ function AdminClientes() {
       >
         Volver
       </Link>
-    </div>
+      </div>
+    </main>
   );
 }
 

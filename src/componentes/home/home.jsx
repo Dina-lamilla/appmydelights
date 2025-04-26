@@ -13,20 +13,19 @@ import { Link } from "react-router-dom";
 //-----------------------------HOME----------------------------------
 
 function Home() {
-    return (
-      <div className="container1">
+    return ( 
+      <main className="container1">
         <Row>
           {/* Menú a la izquierda */} 
-          <Col md={2}>
+          <Col md={2} as="aside">
           <Nav/>
           </Col>
 
           {/* Home a la derecha */}
-          <Col md={10}>
-            <div className="contenedorHome">
+          <Col md={10} as="aside">
+            <section className="contenedorHome">
               <div className="textHome"> 
-              <h2>ORDENA TU</h2>
-              <p>COMIDA FAVORITA</p>
+              <h1>ORDENA TU <br/>COMIDA FAVORITA</h1>
               <Link
                     type="button"
                     className="btn btn-primary font-semibold"
@@ -35,13 +34,13 @@ function Home() {
                     Menú
                   </Link>
               </div>
-            </div>
+            </section>
             <div className="footer">
             <Footer/>
             </div>
           </Col>
         </Row>
-      </div>
+      </main>
       
     );
   }

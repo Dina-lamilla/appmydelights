@@ -18,3 +18,10 @@
 .CalculoTotal p{
     align-items:end
 }
+
+@media (max-width: 768px) {
+    .ContenedorCompras{
+        padding: 2rem;
+        width: 100%;
+    }
+}

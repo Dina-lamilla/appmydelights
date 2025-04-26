@@ -85,15 +85,15 @@ function Compras() {
   };
 
   return (
-    <div className="container1">
+    <main className="container1">
       <Row>
-        <Col md={2}>
+        <Col md={2} as="aside">
           <Nav />
         </Col>
 
-        <Col md={9}>
-          <div className="ContenedorCompras">
-            <h2>Compras</h2>
+        <Col md={9} as="aside">
+          <section className="ContenedorCompras">
+            <h1>Compras</h1>
 
             <div>
               {carrito.length === 0 ? (
@@ -123,7 +123,7 @@ function Compras() {
               <h5>Subtotal:</h5>
               <p>${total.toLocaleString("es-CO")}</p>
 
-              {tipoCliente && (
+              {tipoCliente && ( 
                 <>
                   <h5>Tipo de cliente:</h5>
                   <p>{tipoCliente}</p>
@@ -140,10 +140,10 @@ function Compras() {
                 Pagar
               </Button>
             </div>
-          </div>
+          </section>
         </Col>
       </Row>
-    </div>
+    </main>
   );
 }
 

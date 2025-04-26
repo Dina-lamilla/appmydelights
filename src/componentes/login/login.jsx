@@ -45,18 +45,17 @@ function Login({ onLoginSuccess = () => {} }) {
 
   return (
     <div className="contenedorLogin">
-      <Row>
-        <Col md={6}>
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/img/BannerLogin.jpg`}
+      <Row className="g-0">
+      <Col fluid="md" className="contenedorBannerLogin">
+        <img
+            src={`${process.env.PUBLIC_URL}/assets/img/BannerLogin.webp`}
             alt="BannerLogin"
             className="BannerLogin"
           />
         </Col>
-
-        <Col className="contenedorForm" md={5}>
+        <Col className="contenedorForm" fluid="md">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/img/Logo.png`}
+            src={`${process.env.PUBLIC_URL}/assets/img/Logo.webp`}
             alt="LogoLogin"
             className="LogoLogin"
           />
@@ -79,7 +78,7 @@ function Login({ onLoginSuccess = () => {} }) {
                 Nunca compartiremos su correo electrónico con nadie más.
               </Form.Text>
             </Form.Group>
-
+ 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Contraseña</Form.Label>
               <Form.Control

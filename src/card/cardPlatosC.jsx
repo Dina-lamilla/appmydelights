@@ -31,8 +31,9 @@ function CardPlatosC({ CardPlatosCInfo, eventKey }) {
       <Card.Img
         variant="top"
         src={`${process.env.PUBLIC_URL}${CardPlatosCInfo.imagen}`}
-        text="Sopa de verduras"
+        text={CardPlatosCInfo.titulo}
         alt={CardPlatosCInfo.titulo}
+        loading="lazy"
       />
       <Card.Body>
         <Card.Title>{CardPlatosCInfo.titulo}</Card.Title>

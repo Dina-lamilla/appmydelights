@@ -31,8 +31,9 @@ function CardOtrosServicios({ OtrosServiciosInfo, eventKey }) {
       <Card.Img
         variant="top"
         src={`${process.env.PUBLIC_URL}${OtrosServiciosInfo.imagen}`}
-        text="Sopa de verduras"
+        text={OtrosServiciosInfo.titulo}
         alt={OtrosServiciosInfo.titulo}
+        loading="lazy"
       />
       <Card.Body>
         <Card.Title>{OtrosServiciosInfo.titulo}</Card.Title>

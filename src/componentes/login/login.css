@@ -9,6 +9,7 @@
 .contenedorForm{
     display: flex;
     flex-direction: column;
+    padding: 2rem;
 }
 
 .LogoLogin{ 
@@ -19,7 +20,29 @@
 }
 
 .BannerLogin{
+    display: flex;
     width: 100vh;
     height: 100vh;
     
 }
+
+@media (max-width: 768px) {
+    .contenedorForm{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .LogoLogin{ 
+        width: 50%;
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center;     /* Centra verticalmente */
+        margin: 0 auto;  
+    }
+
+    .contenedorBannerLogin{
+        display: none;
+    }
+}
+

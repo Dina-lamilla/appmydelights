@@ -12,17 +12,17 @@ import CardPlatosC from "../../card/cardPlatosC"
 
 function ComidaC() {
   return (
-    <div className="container1">
+    <main className="container1">
       <Row>
         {/* Menú a la izquierda */}
-        <Col md={2}>
+        <Col md={2} as="aside">
           <Nav />
         </Col>
 
         {/* Home a la derecha */}
-        <Col md={9}>
-          <div className="ContenedorComidaC">
-          <h4>Comida Corriente</h4><br/>
+        <Col md={9} as="aside">
+          <section className="ContenedorComidaC">
+          <h1>Comida Corriente</h1><br/>
             {/*------------------------- CARD PLATILLOS------------------------- */}
             <div className="CardPlatosCStyle">
               {CardPlatosCInfo.map((info, index)=>{
@@ -35,10 +35,10 @@ function ComidaC() {
 
             </div>
             {/* Cierr div Card Sopas */}
-          </div>
+          </section>
         </Col>
       </Row>
-    </div>
+    </main>
   );
 }
 

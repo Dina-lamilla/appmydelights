@@ -93,19 +93,19 @@ function ClientForm() {
   };
 
   return (
-    <div>
+    <main>
       <Row>
         {/* Menú a la izquierda */}
-        <Col md={2}>
+        <Col md={2} as="aside">
           <Nav />
         </Col>
 
         {/* ----------------------------------------FORMULARIO a la derecha------------------------------------------------------------- */}
 
-        <Col md={9}>
-          <div className="contenedorFormulario">
+        <Col md={9} as="aside">
+          <section className="contenedorFormulario">
             <Form className="FormularioRegistro" onSubmit={handleRegistro}>
-              <h5>Formulario De Registro</h5>
+              <h1>Formulario De Registro</h1>
               {error && <p style={{ color: "red" }}>{error}</p>}
               <Row className="mb-3">
                 <Form.Group as={Col} className="mb-3" controlId="formRegistroUser">
@@ -219,10 +219,10 @@ function ClientForm() {
                 </Link>
               </div>
             </Form>
-          </div>
+          </section>
         </Col>
       </Row>
-    </div>
+    </main>
   );
 }
 

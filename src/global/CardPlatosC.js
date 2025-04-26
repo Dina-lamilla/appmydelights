@@ -6,7 +6,7 @@ export const CardPlatosCInfo = [
         descripcion:"Perfecta para disfrutar en cualquier momento, te abraza con cada cucharada.",
         ingredientes: "Papa, zanahoria, yuca, cebolla, ajo, tomate, cilantro y caldo.",
         valor: 5000,
-        imagen: "/assets/img/Sopa de verduras.jpg",
+        imagen: "/assets/img/Sopa de verduras.webp",
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ export const CardPlatosCInfo = [
         descripcion:"un clásico casero, reconfortante y lleno de sabor",
         ingredientes: "pollo, papa, yuca, zanahoria y mazorca",
         valor: 6000,
-        imagen: "/assets/img/Sopa de pollo.jpg",
+        imagen: "/assets/img/Sopa de pollo.webp",
     },
     {
         id: 3,
@@ -22,7 +22,7 @@ export const CardPlatosCInfo = [
         descripcion:"Clásico arroz cocido con sal y aceite.",
         ingredientes: "Arroz, sal, aceite.",
         valor: 3000,
-        imagen: "/assets/img/Arroz blanco.jpg",
+        imagen: "/assets/img/Arroz blanco.webp",
     },
     {
         id: 4,
@@ -30,7 +30,7 @@ export const CardPlatosCInfo = [
         descripcion:"Carne molida con verduras en salsa casera.",
         ingredientes: "Carne de res, cebolla, tomate, ajo, pimentón.",
         valor: 4800,
-        imagen: "/assets/img/Carne molida guisada.jpg",
+        imagen: "/assets/img/Carne molida guisada.webp",
     },
     {
         id: 5,
@@ -38,7 +38,7 @@ export const CardPlatosCInfo = [
         descripcion:"Opción vegetariana, simple y rica.",
         ingredientes: "Huevo, sal, aceite.",
         valor: 400,
-        imagen: "/assets/img/Huevo frito o revuelto.jpg",
+        imagen: "/assets/img/Huevo frito o revuelto.webp",
     },
     {
         id: 6,
@@ -46,7 +46,7 @@ export const CardPlatosCInfo = [
         descripcion:"un clásico casero",
         ingredientes: "lechuga, tomate, zanahoria",
         valor: 3000,
-        imagen: "/assets/img/Ensalada fresca.jpg",
+        imagen: "/assets/img/Ensalada fresca.webp",
     },
     
 ]
